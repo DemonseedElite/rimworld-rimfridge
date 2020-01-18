@@ -177,7 +177,7 @@ namespace RimFridge
             fixedStorageSettings.CopyFrom(((Building_Storage)parent).def.building.fixedStorageSettings);
             foreach (ThingDef td in DefDatabase<ThingDef>.AllDefs)
             {
-                if ((td.HasComp(typeof(CompRottable)) || td.HasComp(typeof(CompTemperatureRuinable)) ) && !fixedStorageSettings.filter.Allows(td)) 
+                if (td.HasComp(typeof(CompRottable))   && !fixedStorageSettings.filter.Allows(td)) 
                 {
                     fixedStorageSettings.filter.SetAllow(td, true);
                 }
